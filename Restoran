@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Frontend Database Restoran</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-900 text-white min-h-screen">
+
+  <div class="max-w-7xl mx-auto p-6">
+    <h1 class="text-4xl font-bold mb-2">🍽️ Sistem Informasi Restoran</h1>
+    <p class="text-slate-400 mb-6">Web Interface Front End Database Restoran</p>
+
+    <!-- Navigasi -->
+    <div class="flex flex-wrap gap-3 mb-6">
+      <button onclick="loadJabatan()" class="btn">Jabatan</button>
+      <button onclick="loadKaryawan()" class="btn">Karyawan</button>
+      <button onclick="loadKategori()" class="btn">Kategori Menu</button>
+      <button onclick="loadMenu()" class="btn">Menu</button>
+      <button onclick="loadPenjualan()" class="btn">Penjualan</button>
+    </div>
+
+    <!-- Konten -->
+    <div id="content" class="bg-slate-800 rounded-xl p-6 shadow"></div>
+  </div>
+
+<script>
+const content = document.getElementById('content');
+
+function table(headers, rows) {
+  return `
+  <table class="w-full border-collapse mt-4">
+    <thead class="bg-slate-700">
+      <tr>${headers.map(h=>`<th class='p-2'>${h}</th>`).join('')}</tr>
+    </thead>
+    <tbody>${rows}</tbody>
+  </table>`;
+}
+
+function loadJabatan() {
+  content.innerHTML = `<h2 class='text-2xl font-semibold'>Data Jabatan</h2>` +
+  table(['ID','Nama Jabatan'],`
+    <tr><td class='p-2'>1</td><td class='p-2'>Manager</td></tr>
+    <tr><td class='p-2'>2</td><td class='p-2'>Kasir</td></tr>
+    <tr><td class='p-2'>3</td><td class='p-2'>Koki</td></tr>`);
+}
+
+function loadKaryawan() {
+  content.innerHTML = `<h2 class='text-2xl font-semibold'>Data Karyawan</h2>` +
+  table(['ID','Nama','Jabatan'],`
+    <tr><td class='p-2'>1</td><td class='p-2'>Andi</td><td class='p-2'>Manager</td></tr>
+    <tr><td class='p-2'>2</td><td class='p-2'>Budi</td><td class='p-2'>Kasir</td></tr>`);
+}
+
+function loadKategori() {
+  content.innerHTML = `<h2 class='text-2xl font-semibold'>Data Kategori Menu</h2>` +
+  table(['ID','Kategori'],`
+    <tr><td class='p-2'>1</td><td class='p-2'>Makanan</td></tr>
+    <tr><td class='p-2'>2</td><td class='p-2'>Minuman</td></tr>`);
+}
+
+function loadMenu() {
+  content.innerHTML = `<h2 class='text-2xl font-semibold'>Data Menu</h2>` +
+  table(['ID','Menu','Kategori','Harga'],`
+    <tr><td class='p-2'>1</td><td class='p-2'>Nasi Goreng</td><td class='p-2'>Makanan</td><td class='p-2'>20000</td></tr>
+    <tr><td class='p-2'>2</td><td class='p-2'>Es Teh</td><td class='p-2'>Minuman</td><td class='p-2'>5000</td></tr>`);
+}
+
+function loadPenjualan() {
+  content.innerHTML = `<h2 class='text-2xl font-semibold'>Data Penjualan</h2>` +
+  table(['ID','Menu','Jumlah','Total'],`
+    <tr><td class='p-2'>1</td><td class='p-2'>Nasi Goreng</td><td class='p-2'>2</td><td class='p-2'>40000</td></tr>
+    <tr><td class='p-2'>2</td><td class='p-2'>Es Teh</td><td class='p-2'>3</td><td class='p-2'>15000</td></tr>`);
+}
+
+loadJabatan();
+</script>
+
+<style>
+.btn{
+  background:#6366f1;
+  padding:10px 16px;
+  border-radius:10px;
+  font-weight:600;
+}
+.btn:hover{background:#4f46e5}
+</style>
+
+</body>
+</html>
