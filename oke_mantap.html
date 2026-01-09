@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard Restoran</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f4f6f9;
+    }
+    header {
+      background: linear-gradient(90deg, #ff7a18, #ffb347);
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      background: #fff;
+      padding: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    nav button {
+      padding: 10px 15px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      background: #ff7a18;
+      color: white;
+      font-weight: bold;
+    }
+    nav button:hover { background: #e66700; }
+    .container {
+      padding: 20px;
+    }
+    .card {
+      background: white;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      margin-bottom: 20px;
+    }
+    h2 { margin-top: 0; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    table th, table td {
+      padding: 10px;
+      border-bottom: 1px solid #ddd;
+      text-align: left;
+    }
+    table th {
+      background: #ffb347;
+      color: #333;
+    }
+    footer {
+      text-align: center;
+      padding: 15px;
+      background: #fff;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Dashboard Manajemen Restoran</h1>
+    <p>Web Interface Front-End Database Restoran</p>
+  </header>
+
+  <nav>
+    <button onclick="showSection('jabatan')">Data Jabatan</button>
+    <button onclick="showSection('karyawan')">Data Karyawan</button>
+    <button onclick="showSection('kategori')">Kategori Menu</button>
+    <button onclick="showSection('menu')">Data Menu</button>
+    <button onclick="showSection('penjualan')">Data Penjualan</button>
+  </nav>
+
+  <div class="container">
+    <div id="jabatan" class="card">
+      <h2>Data Jabatan</h2>
+      <table>
+        <tr><th>ID</th><th>Nama Jabatan</th></tr>
+        <tr><td>1</td><td>Manager</td></tr>
+        <tr><td>2</td><td>Kasir</td></tr>
+        <tr><td>3</td><td>Koki</td></tr>
+        <tr><td>4</td><td>Pelayan</td></tr>
+      </table>
+    </div>
+
+    <div id="karyawan" class="card" style="display:none">
+      <h2>Data Karyawan</h2>
+      <table>
+        <tr><th>ID</th><th>Nama</th><th>Jabatan</th></tr>
+        <tr><td>1</td><td>Andi</td><td>Manager</td></tr>
+        <tr><td>2</td><td>Siti</td><td>Kasir</td></tr>
+        <tr><td>3</td><td>Budi</td><td>Koki</td></tr>
+      </table>
+    </div>
+
+    <div id="kategori" class="card" style="display:none">
+      <h2>Data Kategori Menu</h2>
+      <table>
+        <tr><th>ID</th><th>Nama Kategori</th></tr>
+        <tr><td>1</td><td>Makanan</td></tr>
+        <tr><td>2</td><td>Minuman</td></tr>
+        <tr><td>3</td><td>Dessert</td></tr>
+      </table>
+    </div>
+
+    <div id="menu" class="card" style="display:none">
+      <h2>Data Menu</h2>
+      <table>
+        <tr><th>ID</th><th>Nama Menu</th><th>Kategori</th><th>Harga</th></tr>
+        <tr><td>1</td><td>Nasi Goreng</td><td>Makanan</td><td>25000</td></tr>
+        <tr><td>2</td><td>Es Teh</td><td>Minuman</td><td>8000</td></tr>
+        <tr><td>3</td><td>Pudding</td><td>Dessert</td><td>15000</td></tr>
+      </table>
+    </div>
+
+    <div id="penjualan" class="card" style="display:none">
+      <h2>Data Penjualan</h2>
+      <table>
+        <tr><th>ID</th><th>Tanggal</th><th>Total</th></tr>
+        <tr><td>1</td><td>2026-01-05</td><td>150000</td></tr>
+        <tr><td>2</td><td>2026-01-06</td><td>275000</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2026 Sistem Informasi Restoran | Front-End Web</p>
+  </footer>
+
+  <script>
+    function showSection(id) {
+      const sections = ['jabatan','karyawan','kategori','menu','penjualan'];
+      sections.forEach(sec => {
+        document.getElementById(sec).style.display = sec === id ? 'block' : 'none';
+      });
+    }
+  </script>
+</body>
+</html>
